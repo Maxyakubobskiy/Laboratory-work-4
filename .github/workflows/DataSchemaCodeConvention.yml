@@ -18,4 +18,4 @@ jobs:
          # Запуск SQLFluff для проверки файла схемы данных
       - name: Run SQLFluff Linting        
         run: |
-          sqlfluff lint $GITHUB_WORKSPACE/DataSchema.sql --dialect postgres
+          sqlfluff lint $GITHUB_WORKSPACE/DataSchemaModified.sql --dialect postgres
