@@ -1,0 +1,21 @@
+name: Data Schema Code Convention Check 
+
+on:  
+  push:
+    branches: 
+      - main 
+jobs:
+  DataSchemaLinter:
+    runs-on: ubuntu-latest
+    steps:      
+      # Шаг для клонирования кода репозитория
+      - name: Checkout Repository        
+        uses: actions/checkout@v3
+
+      # Установка SQLFluff для проверки SQL-файлов
+      - name: Install SQLFluff        
+        run: pip install sqlfluff
+         # Запуск SQLFluff для проверки файла схемы данных
+      - name: Run SQLFluff Linting        
+        run: |
+          sqlfluff lint $GITHUB_WORKSPACE/DataSchema.sql --dialect postgres
